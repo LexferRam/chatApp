@@ -4,8 +4,8 @@ import MessageForm from './MessageForm';
 
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
-
   const chat = chats && chats[activeChat];
+  console.log(chat)
 
   const renderReadReceipts = (message, isMyMessage) => chat.people.map((person, index) => person.last_read === message.id && (
     <div
@@ -13,6 +13,7 @@ const ChatFeed = (props) => {
       className="read-receipt"
       style={{
         float: isMyMessage ? 'right' : 'left',
+        color:'red',
         backgroundImage: person.person.avatar && `url(${person.person.avatar})`,
       }}
     />
@@ -20,9 +21,11 @@ const ChatFeed = (props) => {
 
   const renderMessages = () => {
     const keys = Object.keys(messages);
-
+    
     return keys.map((key, index) => {
       const message = messages[key];
+      console.log(message)
+
       const lastMessageKey = index === 0 ? null : keys[index - 1];
       const isMyMessage = userName === message.sender.username;
 

@@ -39,7 +39,7 @@ const Modal = () => {
             </button>
           </div>
         </form>
-        <h1>{error}</h1>
+        <h1 style={{color:"white", width:"100%",fontSize:14, marginLeft:27}}>{error}</h1>
       </div>
     </div>
 
